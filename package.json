@@ -5,10 +5,10 @@
   "author": "Nikita Tchayka <nikitatchayka@gmail.com>",
   "description": "dataHaskell's bot",
   "dependencies": {
-    "hubot": "^2.19.0",
-    "hubot-diagnostics": "0.0.2",
-    "hubot-gitter2": "^0.1.3",
-    "hubot-help": "^0.2.2",
-    "hubot-heroku-keepalive": "^1.0.3"
+      "hubot": "^2.19.0",
+      "hubot-diagnostics": "0.0.2",
+      "hubot-gitter2": "^0.1.3",
+      "hubot-help": "^0.2.2",
+      "hubot-heroku-keepalive": "^1.0.3"
   }
 }
