@@ -11,7 +11,7 @@
 module.exports = (robot) ->
 
   robot.hear /im reading (.*)/i, (res) ->
-    paper = res.match[2]
+    paper = res.match[1]
     res.send "You're reading #{paper}!"
   #
   # robot.respond /open the (.*) doors/i, (res) ->
