@@ -2,7 +2,7 @@
 #   Submit a paper of the week for review and posterior Twitter publication
 #
 # Commands:
-#   hubot im reading <name of paper>
+#   hubot im reading <name of paper> - Submit a paper of the week for review and posterior Twitter publication
 #
 # Notes:
 #   They are commented out by default, because most of them are pretty silly and
