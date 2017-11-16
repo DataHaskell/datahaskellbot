@@ -18,17 +18,18 @@ module.exports = (robot) ->
 
   robot.hear /im reading (.*)/i, (res) ->
     paper = res.match[1]
-    res.send "You're reading #{paper}!"
-
-    msg =
+    msg = {
         to: 'test@example.com',
         from: 'test@example.com',
         subject: 'Sending with SendGrid is Fun',
         text: 'and easy to do anywhere, even with Node.js',
         html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+    }
 
     sgMail.send msg
 
+
+    res.send "You're reading #{paper}!"
 
   #
   # robot.respond /open the (.*) doors/i, (res) ->
