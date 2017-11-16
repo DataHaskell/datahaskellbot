@@ -33,7 +33,7 @@ module.exports = (robot) ->
                 e = result.success.expr
                 v = result.success.value
                 t = result.success.type
-                o = "\`\`\`\n#{e}\n\t=> #{v} :: #{t}"
+                o = "\`\`\`haskell\n#{e}\n\t=> #{v} :: #{t}\n\`\`\`"
                 msg.reply o
           else
             msg.reply "Unable to evaluate script: #{script}. Request returned with the status code: #{res.statusCode}"
