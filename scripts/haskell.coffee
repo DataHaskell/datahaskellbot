@@ -24,17 +24,16 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
         switch res.statusCode
           when 200
-            if res.headers["set-cookie"]
-              HASKELLJSON = res.headers["set-cookie"][0].match(/HASKELLJSON=([-a-z0-9]+);/)[1]
             result = JSON.parse(body)
 
             if result.error
               msg.reply result.error
             else
-              if result.result
-                outputs = result.result.split("\n")
-                for output in outputs
-                  msg.reply output
-              msg.reply result.type
+              if result.success
+                e = result.success.expr
+                v = result.success.value
+                t = result.success.type
+                o = "\`\`\`\n#{e}\n\t=> #{v} :: #{t}"
+                msg.reply o
           else
             msg.reply "Unable to evaluate script: #{script}. Request returned with the status code: #{res.statusCode}"
