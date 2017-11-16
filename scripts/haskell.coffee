@@ -16,12 +16,11 @@
 HASKELLJSON=""
 
 module.exports = (robot) ->
-  robot.respond /(haskell)\s+(.*)/i, (msg)->
+  robot.respond /(eval)\s+(.*)/i, (msg)->
     script = msg.match[2]
 
-    msg.http("http://tryhaskell.org/haskell.json")
-      .query({method: "eval", expr: script})
-      .headers(Cookie: "HASKELLJSON=#{HASKELLJSON}")
+    msg.http("http://tryhaskell.org/eval/")
+      .query({exp: script})
       .get() (err, res, body) ->
         switch res.statusCode
           when 200
