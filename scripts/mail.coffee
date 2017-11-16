@@ -1,5 +1,8 @@
 # Description:
-#   Example scripts for you to examine and try out.
+#   Submit a paper of the week for review and posterior Twitter publication
+#
+# Commands:
+#   hubot im reading <name of paper>
 #
 # Notes:
 #   They are commented out by default, because most of them are pretty silly and
@@ -13,6 +16,10 @@ module.exports = (robot) ->
   robot.hear /im reading (.*)/i, (res) ->
     paper = res.match[1]
     res.send "You're reading #{paper}!"
+
+    
+
+
   #
   # robot.respond /open the (.*) doors/i, (res) ->
   #   doorType = res.match[1]
