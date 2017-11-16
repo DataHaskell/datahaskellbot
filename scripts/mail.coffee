@@ -10,8 +10,8 @@
 
 module.exports = (robot) ->
 
-  robot.hear /I(\s|\S*)(am\s|\s)reading\s/i, (res) ->
-    paper = res.match[1]
+  robot.hear /im reading (.*)/i, (res) ->
+    paper = res.match[2]
     res.send "You're reading #{paper}!"
   #
   # robot.respond /open the (.*) doors/i, (res) ->
