@@ -38,7 +38,7 @@ module.exports = (robot) ->
     sgMail.send msg
 
 
-    res.send "You're reading #{paper}!"
+    res.send "Got, it! Submitting for pre-Twitter review..."
 
   #
   # robot.respond /open the (.*) doors/i, (res) ->
