@@ -24,15 +24,15 @@ module.exports = (robot) ->
     msg = {
         to: 'datahaskell@gmail.com',
         from: 'gitterbot+datahaskell@gmail.com',
-        subject: '[dataHaskell - POTW] New submission by #{sender}',
+        subject: "[dataHaskell - POTW] New submission by #{sender}",
         text: 'View this in an HTML-enabled client',
-        html: '''
+        html: "
         #{paper} - #{sLink}
-        <a class="twitter-share-button"
-           href="https://twitter.com/intent/tweet?text=#{twitterText}">
+        <a class=\"twitter-share-button\"
+           href=\"https://twitter.com/intent/tweet?text=#{twitterText}\">
            Submit
         </a>
-        ''',
+        ",
     }
 
     sgMail.send msg
