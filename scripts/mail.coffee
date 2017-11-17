@@ -2,7 +2,7 @@
 #   Submit a paper of the week for review and posterior Twitter publication
 #
 # Commands:
-#   hubot im reading <name of paper> - Submit a paper of the week for review and posterior Twitter publication
+#   hubot im reading <name of paper> at <source link> - Submit a paper of the week for review and posterior Twitter publication
 #
 # Notes:
 #   They are commented out by default, because most of them are pretty silly and
@@ -16,14 +16,23 @@ module.exports = (robot) ->
   sgMail = require '@sendgrid/mail'
   sgMail.setApiKey process.env.SENDGRID_API_KEY
 
-  robot.hear /im reading (.*)/i, (res) ->
+  robot.hear /im reading (.*) at (.*)/i, (res) ->
     paper = res.match[1]
+    sLink = res.match[2]
+    twitterText = encodeURI "#{paper} - #{sLink}"
+    sender = res.message.user.name.toLowerCase()
     msg = {
-        to: 'test@example.com',
-        from: 'test@example.com',
-        subject: 'Sending with SendGrid is Fun',
-        text: 'and easy to do anywhere, even with Node.js',
-        html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+        to: 'datahaskell@gmail.com',
+        from: 'gitterbot+datahaskell@gmail.com',
+        subject: '[dataHaskell - POTW] New submission by #{sender}',
+        text: 'View this in an HTML-enabled client',
+        html: '''
+        #{paper} - #{sLink}
+        <a class="twitter-share-button"
+           href="https://twitter.com/intent/tweet?text=#{twitterText}">
+           Submit
+        </a>
+        ''',
     }
 
     sgMail.send msg
